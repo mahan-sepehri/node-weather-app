@@ -7,6 +7,7 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //serving inline html with express
 
@@ -104,7 +105,7 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(
     new Date().getHours().toString().padStart(2, "0"),
     ":",
@@ -112,5 +113,5 @@ app.listen(3000, () => {
     ":",
     new Date().getSeconds().toString().padStart(2, "0")
   );
-  console.log("Server is up on port 3000");
+  console.log("Server is up on port " + port);
 });
